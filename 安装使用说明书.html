@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>FLR-1000 型自动发酵系统安装使用说明书</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+        }
+        body {
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding-bottom: 80px;
+        }
+        .header {
+            background: #2d62ed;
+            color: #fff;
+            padding: 20px 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 15px;
+        }
+        .section {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .section-title {
+            color: #2d62ed;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .section-title::before {
+            content: "●";
+            font-size: 12px;
+            margin-right: 8px;
+        }
+        .sub-title {
+            font-size: 15px;
+            font-weight: 600;
+            margin: 12px 0 8px;
+            color: #333;
+        }
+        .text-content {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        .note {
+            background: #fff8e6;
+            border-left: 3px solid #ff9800;
+            padding: 10px 12px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #e65100;
+        }
+        .note::before {
+            content: "⚠️ 提醒：";
+            font-weight: 600;
+        }
+        .table-wrap {
+            width: 100%;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+        th, td {
+            border: 1px solid #eee;
+            padding: 8px 10px;
+            text-align: left;
+            white-space: nowrap;
+        }
+        th {
+            background: #f8f9fa;
+            color: #666;
+            font-weight: 600;
+        }
+        td {
+            color: #555;
+        }
+        .img-box {
+            width: 100%;
+            margin: 10px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .img-desc {
+            font-size: 12px;
+            color: #888;
+            text-align: center;
+            margin-top: 5px;
+        }
+        .step {
+            margin-bottom: 15px;
+        }
+        .step-number {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: #2d62ed;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 12px;
+            margin-right: 8px;
+        }
+        .list {
+            list-style: none;
+            margin: 8px 0 8px 20px;
+            font-size: 14px;
+            color: #555;
+        }
+        .list li {
+            margin-bottom: 6px;
+            position: relative;
+        }
+        .list li::before {
+            content: "→";
+            position: absolute;
+            left: -15px;
+            color: #2d62ed;
+            font-size: 12px;
+        }
+        .procedure {
+            background: #f0f7ff;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 10px 0;
+        }
+        .procedure-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #2d62ed;
+            margin-bottom: 6px;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: #2d62ed;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-size: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            cursor: pointer;
+            z-index: 99;
+            display: none;
+        }
+        .back-to-top.show {
+            display: block;
+        }
+        .img-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            display: none;
+        }
+        .img-modal.show {
+            display: flex;
+        }
+        .modal-img {
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 8px;
+        }
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>FLR-1000 型自动发酵系统安装使用说明书</h1>
+    </div>
+
+    <div class="container">
+        <!-- 前言部分 -->
+        <div class="section">
+            <div class="section-title">一、前言</div>
+            <div class="sub-title">1. 设备基础信息</div>
+            <ul class="list">
+                <li>型号：FLR-1000</li>
+                <li>核心布局：罐体（左）+ 柜体（右），间距53cm，罐体投料口（红色盖子）朝前，顶部横梁与柜体水平居中对齐</li>
+                <li>管路连接要求：丝口连接处需缠生料带（活接除外），直插接口需涂抹704胶水！</li>
+            </ul>
+            <!-- 第一张图片（已替换正确地址） -->
+            <div class="img-box" onclick="openModal(this)">
+                <img src="https://i.ibb.co/W4h9rXmK/FLR-wg.png" alt="设备示意图">
+                <div class="img-desc">设备整体示意图</div>
+            </div>
+        </div>
+
+        <!-- 安装调试步骤 -->
+        <div class="section">
+            <div class="section-title">二、安装调试步骤</div>
+
+            <!-- 步骤1：配件包检查 -->
+            <div class="step">
+                <div class="sub-title"><span class="step-number">1</span>配件包检查</div>
+                <div class="text-content">操作说明：打开配件包，根据配件清单逐一核查所有配件，本系统所有管路配件均为标准件，若有缺失可自行另配。</div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>配件名称</th>
+                                <th>编号</th>
+                                <th>规格参数</th>
+                                <th>数量</th>
+                                <th>备注</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>直接管</td><td>1</td><td>∅32---1680mm</td><td>3件</td><td></td></tr>
+                            <tr><td>2</td><td>直接管</td><td>2</td><td>∅32---580mm</td><td>1件</td><td></td></tr>
+                            <tr><td>3</td><td>直接管</td><td>3</td><td>∅32---500mm</td><td>2件</td><td></td></tr>
+                            <tr><td>4</td><td>直接管</td><td>4</td><td>∅32---450mm</td><td>2件</td><td></td></tr>
+                            <tr><td>5</td><td>直接管</td><td>5</td><td>∅32---280mm</td><td>1件</td><td></td></tr>
+                            <tr><td>6</td><td>直接管</td><td>6</td><td>∅32---150mm</td><td>1件</td><td></td></tr>
+                            <tr><td>7</td><td>直接管</td><td>7</td><td>∅32---120mm</td><td>1件</td><td></td></tr>
+                            <tr><td>8</td><td>直接管</td><td>8</td><td>∅20---70mm</td><td>1件</td><td></td></tr>
+                            <tr><td>9</td><td>直接管</td><td>9</td><td>∅20---190mm</td><td>1件</td><td></td></tr>
+                            <tr><td>10</td><td>大号活接</td><td></td><td>∅32</td><td>1件</td><td>安装罐体底部出料口</td></tr>
+                            <tr><td>11</td><td>中号活接</td><td></td><td>∅32</td><td>8件</td><td></td></tr>
+                            <tr><td>12</td><td>小号活接</td><td></td><td>∅20</td><td>2件</td><td></td></tr>
+                            <tr><td>13</td><td>短直接管</td><td></td><td>∅32---44mm</td><td>6个</td><td></td></tr>
+                            <tr><td>14</td><td>短直接管</td><td></td><td>∅20---30mm</td><td>3个</td><td></td></tr>
+                            <tr><td>15</td><td>弯头</td><td></td><td>∅32</td><td>10个</td><td></td></tr>
+                            <tr><td>16</td><td>三通</td><td></td><td>∅20</td><td>2个</td><td></td></tr>
+                            <tr><td>17</td><td>异形三通</td><td></td><td>∅32转∅20</td><td>1个</td><td></td></tr>
+                            <tr><td>18</td><td>球阀</td><td></td><td>∅20</td><td>1个</td><td></td></tr>
+                            <tr><td>19</td><td>排污球阀</td><td></td><td>∅32</td><td>1个</td><td></td></tr>
+                            <tr><td>20</td><td>循环弯管</td><td></td><td>45°出水管</td><td>1个</td><td></td></tr>
+                            <tr><td>21</td><td>循环直接管</td><td></td><td>∅32---1000mm</td><td>1个</td><td></td></tr>
+                            <tr><td>22</td><td>透明液位管</td><td></td><td>∅20---1170mm</td><td>1个</td><td></td></tr>
+                            <tr><td>23</td><td>内丝直接</td><td></td><td>∅20</td><td>1个</td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 步骤2：摆放罐体与柜体 -->
+            <div class="step">
+                <div class="sub-title"><span class="step-number">2</span>摆放罐体与柜体</div>
+                <div class="text-content">操作说明：按“罐体在左、柜体在右”的顺序摆放，间距控制在53cm左右；确保罐体的投料口（红色盖子）朝前，罐体顶部横梁与柜体水平居中对齐。如需调整布局，需根据场地尺寸另配管件。</div>
+                <!-- 第二张图片（已替换为你提供的在线地址） -->
+                <div class="img-box" onclick="openModal(this)">
+                    <img src="https://i.ibb.co/203mzN6m/image.png" alt="管路标示图">
+                    <div class="img-desc">管路系统示意图</div>
+                </div>
+            </div>
+
+            <!-- 步骤3：安装罐内循环管路 -->
+            <div class="step">
+                <div class="sub-title"><span class="step-number">3</span>安装罐内循环管路</div>
+                <div class="text-content"><strong>连接顺序：</strong>罐顶循环口内 → 活接 → 循环直接管 → 循环弯接管</div>
+                <div class="note">弯头出水口需要对准筒壁</div>
+            </div>
+
+            <!-- 步骤4：安装底部出料管路 -->
+            <div class="step">
+                <div class="sub-title"><span class="step-number">4</span>安装底部出料管路</div>
+                <div class="text-content"><strong>连接顺序：</strong>罐体最下端出料口 → 大活接 → 循环直接管 → 弯头 → 直接管（4） → 三通 → 直接管（6） → 手动阀 → 直接管（4） → 活接 → 柜体出料口</div>
+                <div class="note">手动阀应略微向下倾斜，便于排污干净</div>
+            </div>
+
+            <!-- 步骤5：安装液位显示管路 -->
+            <div class="step">
+                <div class="sub-title"><span class="step-number">5</span>安装液位显示管路</div>
+                <div class="text-content"><strong>连接顺序：</strong>罐体下端液位接口 → 三通（20，垂直向上） → 垂直透明管 → 罐体上端液位接口 → 连接管（8） → 三通（20，垂直向下连接透明管） → 向上手动阀 → 连接管（9）</div>
+                <div class="note">垂直透明管需保持竖直安装，确保液位显示准确；接口密封处理同前</div>
+            </div>
+
+            <!-- 步骤6：安装清洗管路 -->
+            <div class="step">
+                <div class="sub-title"><span class="step-number">6</span>安装清洗管路</div>
+                <div class="text-content"><strong>连接顺序：</strong>罐体顶端中心清洗接口 → 活接 → 连接管（7） → 弯头 → 连接管（2） → 三通（32转25） → 向下连接液位顶端连接管（9） → 向右连接管（5） → 弯头 → 连接管（1） → 弯头 → 直接 → 活接 → 柜体清洗口</div>
+                <div class="note">确保罐体顶端清洗球头居中安装，保证后续清洗覆盖全面</div>
+            </div>
+
+            <!-- 步骤7：安装进水管路 -->
+            <div class="step">
+                <div class="sub-title"><span class="step-number">7</span>安装进水管路</div>
+                <div class="text-content"><strong>连接顺序：</strong>罐体顶端进水口 → 活接 → 直接 → 弯头 → 连接管（3） → 弯头 → 连接管（1） → 弯头 → 直接 → 活接 → 柜体进水口</div>
+                <div class="note">管路走向需避开其他管路，避免交叉缠绕</div>
+            </div>
+
+            <!-- 步骤8：安装循环管路 -->
+            <div class="step">
+                <div class="sub-title"><span class="step-number">8</span>安装循环管路</div>
+                <div class="text-content"><strong>连接顺序：</strong>罐体顶端循环口 → 活接 → 直接 → 弯头 → 连接管（3） → 弯头 → 连接管（1） → 弯头 → 直接 → 活接 → 柜体循环口</div>
+                <div class="note">管路走向需避开其他管路，避免交叉缠绕</div>
+            </div>
+
+            <!-- 步骤9：安装温度感应器 -->
+            <div class="step">
+                <div class="sub-title"><span class="step-number">9</span>安装温度感应器</div>
+                <div class="procedure">
+                    <div class="procedure-title">操作说明：</div>
+                    <ol class="list" style="list-style-type: decimal; margin-left: 20px;">
+                        <li>将温度探针从液位显示管的下端三通处插入并拧紧；</li>
+                        <li>将电线插接头插入柜体航空插座（三针），拧紧盖帽；</li>
+                        <li>用扎带将电线与管道捆扎固定，避免拉扯。</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- 步骤10：安装液位感应器 -->
+            <div class="step">
+                <div class="sub-title"><span class="step-number">10</span>安装液位感应器</div>
+                <div class="procedure">
+                    <div class="procedure-title">操作说明：</div>
+                    <ol class="list" style="list-style-type: decimal; margin-left: 20px;">
+                        <li>将连接线较长的探头卡在透明管的上端，连接线较短的探头卡在透明管最下端；</li>
+                        <li>将插头插入柜体航空插座（四针），拧紧盖帽；</li>
+                        <li>用扎带将电线与管道捆扎固定，确保探头安装牢固。</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- 步骤11：连接进水和出料管道 -->
+            <div class="step">
+                <div class="sub-title"><span class="step-number">11</span>连接进水和出料管道</div>
+                <div class="text-content">操作说明：将自来水进水管道连接到柜体右侧进水口，将出料管道连接到柜体右侧出料口，建议均采用活接连接，便于后续维护拆卸。</div>
+            </div>
+
+            <!-- 步骤12：连接电源线 -->
+            <div class="step">
+                <div class="sub-title"><span class="step-number">12</span>连接电源线</div>
+                <div class="text-content">操作说明：将电源线从柜体左侧预留孔穿入柜体，与柜体内的电源接线端子进行连接。建议由专业电工操作，确保用电安全。</div>
+                <div class="note">电源线连接需专业电工操作，避免触电风险</div>
+            </div>
+
+            <!-- 步骤13：运行调试 -->
+            <div class="step">
+                <div class="sub-title"><span class="step-number">13</span>运行调试</div>
+                
+                <!-- 新增：控制柜面板图片 -->
+                <div class="img-box" onclick="openModal(this)">
+                    <img src="https://i.ibb.co/Tp0Xzf8/image.jpg" alt="控制柜面板">
+                    <div class="img-desc">控制柜面板示意图</div>
+                </div>
+
+                <div class="sub-title" style="font-size: 14px; margin-top: 10px;">1) 测试通电</div>
+                <div class="text-content"><strong>操作：</strong>按“电源开关”→“运行”，观察PH显示器、温度显示是否均点亮，点亮则说明通电正常。</div>
+
+                <div class="sub-title" style="font-size: 14px; margin-top: 10px;">2) 进水测试</div>
+                <div class="procedure">
+                    <div class="procedure-title">操作：</div>
+                    <ol class="list" style="list-style-type: decimal; margin-left: 20px;">
+                        <li>按“进水控制”开关，进水阀门自动开启向罐体注水，观察所有管路是否松动漏水，如有漏水需及时紧固；</li>
+                        <li>将高液位探头移动到300L刻度线左右，低液位探头移动到最下端；</li>
+                        <li>观察水位到达低液位时，低液位探头红灯是否点亮；水位到达高液位时，高液位探头红灯点亮，且进水阀门自动关闭。</li>
+                    </ol>
+                </div>
+
+                <div class="sub-title" style="font-size: 14px; margin-top: 10px;">3) 升温循环测试</div>
+                <div class="procedure">
+                    <div class="procedure-title">操作：</div>
+                    <ol class="list" style="list-style-type: decimal; margin-left: 20px;">
+                        <li>按“温度控制”开关，同时将档位开关调整到低档，观察水泵是否启动，罐体内是否开始循环搅拌；</li>
+                        <li>几分钟后观察温度是否开始升高，同时检查所有管路是否渗漏，如有漏水需紧固；</li>
+                        <li>关闭“温度控制”开关，档位开关调至“关”，单独按“循环控制”开关，观察罐体内部的水是否正常搅拌。</li>
+                    </ol>
+                </div>
+
+                <div class="sub-title" style="font-size: 14px; margin-top: 10px;">4) 清洗出料测试</div>
+                <div class="procedure">
+                    <div class="procedure-title">操作：</div>
+                    <ol class="list" style="list-style-type: decimal; margin-left: 20px;">
+                        <li>按“清洗控制”开关，观察罐体顶端不锈钢清洗球头是否正常喷出高压水柱，实现全方位清洗；</li>
+                        <li>关闭“清洗控制”开关，按“出料控制”开关，罐体内的水经出料管路排出，直至排空后水泵自动停止运行。</li>
+                    </ol>
+                </div>
+
+                <div class="sub-title" style="font-size: 14px; margin-top: 10px;">5) PH值校准</div>
+                <div class="text-content">说明：出厂时已完成校准，如需进一步校准，可参考《PH校准操作说明书》。</div>
+
+                <div class="sub-title" style="font-size: 14px; margin-top: 10px;">6) 温度设定</div>
+                <div class="text-content">说明：出厂时已预设温度范围，如需调整，可参考《温度设定操作说明书》。</div>
+            </div>
+        </div>
+
+        <!-- 使用教程 -->
+        <div class="section">
+            <div class="section-title">三、使用教程</div>
+
+            <div class="sub-title">1. 发酵前准备</div>
+            <div class="procedure">
+                <div class="procedure-title">操作：对于新设备或中断发酵一段时间的设备，需进行2-3次彻底清洗：</div>
+                <ol class="list" style="list-style-type: decimal; margin-left: 20px;">
+                    <li>按“清洗控制”开关，系统自动进水到低液位并启动水泵冲洗，每轮约2分钟，“清洗控制”开关绿灯闪烁，水泵自动停止，此时须手动打开底部排污阀进行排污，直至全部排尽后再手动关闭“清洗控制”开关；</li>
+                    <li>如果“清洗控制”开关绿灯闪烁时，需要快速通过出料管道排水，必须先手动关闭“清洗控制”开关，再按“出料控制”开关通过出料管路快速排水；</li>
+                    <li>重复上述程序2-3次，确保设备清洁无杂菌。</li>
+                </ol>
+            </div>
+
+            <div class="sub-title">2. 开始发酵</div>
+            <div class="procedure">
+                <div class="procedure-title">操作：</div>
+                <ol class="list" style="list-style-type: decimal; margin-left: 20px;">
+                    <li>调整高液位探头到设定发酵液位刻度（不得低于最低液位）；</li>
+                    <li>按“进水控制”开关，系统自动上水，到达设定液位后自动关闭进水阀门；</li>
+                    <li>从投料口按比例投入发酵剂（大华农益菌王0.5%），关闭投料口桶盖；</li>
+                    <li>将档位开关调整到对应档位（发酵液大于500L调至“高”，小于500L调至“低”）；</li>
+                    <li>按“温度控制”开关，发酵正式启动，进入无人值守状态。</li>
+                </ol>
+            </div>
+
+            <div class="sub-title">3. 终止发酵</div>
+            <div class="text-content">操作：当PH值低于3.8时，可随时终止发酵：关闭“温度控制”开关，将档位开关调整到“关”，发酵终止。</div>
+
+            <div class="sub-title">4. 出料</div>
+            <div class="procedure">
+                <div class="procedure-title">操作：</div>
+                <ol class="list" style="list-style-type: decimal; margin-left: 20px;">
+                    <li>出料前先按“循环控制”开关，运行1分钟左右，让发酵液充分混合均匀；</li>
+                    <li>按“出料控制”开关，将发酵液转移到周转桶；</li>
+                    <li>出料完毕后，系统自动关闭水泵。</li>
+                </ol>
+            </div>
+
+            <div class="sub-title">5. 日常清洗维护</div>
+            <ul class="list">
+                <li>每天连续发酵：建议每周清洗1次；</li>
+                <li>中断发酵一段时间：最后一次发酵出料结束与下次重新使用前需清洗2-3遍；</li>
+                <li>清洗后需拧紧桶盖，防止滋生杂菌。</li>
+            </ul>
+        </div>
+
+        <!-- 注意事项 -->
+        <div class="section">
+            <div class="section-title">四、注意事项</div>
+            <div class="note">发酵剂使用限制：本产品仅针对大华农益菌王（水溶型）发酵剂开发，不适用其他任何含有非水溶成分的发酵剂产品（如添加饲料等），也不适用于其他需要特殊环境控制的菌种发酵！</div>
+            <div class="note">使用环境要求：本产品未经防水抗冻设计，必须在室内环境使用，不得在户外无任何防护措施的环境中使用！</div>
+            <div class="note">消毒注意事项：可对罐体及控制柜表面进行喷洒消毒，切勿打开控制柜柜门对内部电器元件直接消毒，一旦损坏，生产商概不负责！</div>
+            <div class="note">安全操作：电源线连接、电器元件维护需由专业电工操作，避免触电风险；管路连接需确保密封，防止渗漏导致设备故障或安全隐患。</div>
+        </div>
+
+        <!-- 底部信息 -->
+        <div class="section" style="background: #f8f9fa; text-align: center;">
+            <div class="text-content" style="color: #888; font-size: 12px;">
+                🔧 技术支持：如有安装或使用疑问，请联系设备供应商<br>
+                📅 版本号：V1.0<br>
+                📌 适配手机端：滑动浏览，点击图片可放大查看
+            </div>
+        </div>
+    </div>
+
+    <!-- 返回顶部按钮 -->
+    <div class="back-to-top" onclick="scrollToTop()">↑</div>
+
+    <!-- 图片放大模态框 -->
+    <div class="img-modal" onclick="closeModal()">
+        <span class="close-modal">×</span>
+        <img src="" alt="放大图片" class="modal-img">
+    </div>
+
+    <script>
+        // 返回顶部功能
+        const backToTopBtn = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // 图片放大功能
+        const imgModal = document.querySelector('.img-modal');
+        const modalImg = document.querySelector('.modal-img');
+
+        function openModal(el) {
+            const imgSrc = el.querySelector('img').src;
+            modalImg.src = imgSrc;
+            imgModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            imgModal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        // 点击模态框外部关闭
+        imgModal.addEventListener('click', (e) => {
+            if (e.target === imgModal) {
+                closeModal();
+            }
+        });
+
+        // 表格自适应优化
+        window.addEventListener('resize', () => {
+            const tables = document.querySelectorAll('table');
+            tables.forEach(table => {
+                table.style.width = window.innerWidth - 40 + 'px';
+            });
+        });
+    </script>
+</body>
+</html>
